@@ -1,16 +1,8 @@
-function BrainIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-      />
-    </svg>
-  )
+interface IconProps {
+  className?: string
 }
 
-function CameraIcon({ className }: { className?: string }) {
+function CameraIcon({ className }: IconProps) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path
@@ -23,19 +15,31 @@ function CameraIcon({ className }: { className?: string }) {
   )
 }
 
-function PackageIcon({ className }: { className?: string }) {
+function GridIcon({ className }: IconProps) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
       />
     </svg>
   )
 }
 
-function MessageCircleIcon({ className }: { className?: string }) {
+function TagIcon({ className }: IconProps) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
+      />
+    </svg>
+  )
+}
+
+function MessageCircleIcon({ className }: IconProps) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path
@@ -47,7 +51,19 @@ function MessageCircleIcon({ className }: { className?: string }) {
   )
 }
 
-function BarChartIcon({ className }: { className?: string }) {
+function PaletteIcon({ className }: IconProps) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.55 0 1-.45 1-1 0-.28-.11-.53-.29-.71-.18-.18-.29-.43-.29-.71 0-.55.45-1 1-1h1.67C18.14 18.58 21 15.64 21 12c0-5.52-4.03-10-9-10zm-5.5 9a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm3-4a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm3 4a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"
+      />
+    </svg>
+  )
+}
+
+function ChartIcon({ className }: IconProps) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path
@@ -59,68 +75,78 @@ function BarChartIcon({ className }: { className?: string }) {
   )
 }
 
-function ZapIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-    </svg>
-  )
+interface Feature {
+  icon: React.ComponentType<IconProps>
+  title: string
+  description: string
+  color: string
 }
 
-const features = [
-  {
-    icon: BrainIcon,
-    title: "Organização com IA",
-    description: "Categorização automática de produtos baseada em características e descrições.",
-  },
+const features: Feature[] = [
   {
     icon: CameraIcon,
-    title: "Análise de Fotos",
-    description: "Nota de qualidade e dicas para melhorar suas imagens e converter mais.",
+    title: "Fotos Profissionais com IA",
+    description: "Receba notas de qualidade e dicas personalizadas para melhorar suas imagens e converter mais.",
+    color: "from-[#2D68FF] to-[#5A8BFF]",
   },
   {
-    icon: PackageIcon,
-    title: "Controle de Estoque",
-    description: "Gestão em tempo real com alertas automáticos de produtos em baixa.",
+    icon: GridIcon,
+    title: "Catálogo Inteligente",
+    description: "Categorização automática de produtos baseada em características. A IA organiza tudo para você.",
+    color: "from-[#4A7FFF] to-[#5A8BFF]",
+  },
+  {
+    icon: TagIcon,
+    title: "Sugestões de Promoções",
+    description: "IA que analisa estoque, cliques e desempenho para sugerir as melhores promoções automaticamente.",
+    color: "from-[#5A8BFF] to-[#2D68FF]",
   },
   {
     icon: MessageCircleIcon,
-    title: "Vendas no WhatsApp",
-    description: "Integração direta. Clientes compram sem sair do app favorito deles.",
+    title: "Vendas pelo WhatsApp",
+    description: "Integração direta com WhatsApp. Seus clientes compram sem sair do app favorito deles.",
+    color: "from-[#2D68FF] to-[#4A7FFF]",
   },
   {
-    icon: BarChartIcon,
-    title: "Relatórios",
-    description: "Acompanhe vendas, produtos populares e comportamento de clientes.",
+    icon: PaletteIcon,
+    title: "100% White Label",
+    description: "Personalize com sua marca, cores e logo. Seus clientes veem apenas a sua identidade visual.",
+    color: "from-[#4A7FFF] to-[#2D68FF]",
   },
   {
-    icon: ZapIcon,
-    title: "Setup Rápido",
-    description: "Comece a vender em 5 minutos com uma interface simples e intuitiva.",
+    icon: ChartIcon,
+    title: "Insights e Métricas",
+    description: "Dashboard completo com vendas, produtos populares e comportamento dos seus clientes.",
+    color: "from-[#2D68FF] to-[#5A8BFF]",
   },
 ]
 
 export function FeaturesSection() {
   return (
-    <section id="recursos" className="py-24 md:py-32">
+    <section id="recursos" className="py-20 md:py-28">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">Tudo para vender mais</h2>
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
+            Recursos
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-4 text-balance">
+            Tudo para vender mais
+          </h2>
           <p className="text-muted-foreground text-lg">
             Ferramentas inteligentes que transformam seu catálogo em máquina de vendas
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group p-6 rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+              className="group p-6 rounded-2xl border border-border bg-card hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
             >
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <feature.icon className="h-5 w-5 text-primary" />
+              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                <feature.icon className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">{feature.title}</h3>
+              <h3 className="text-lg font-bold text-foreground mb-2">{feature.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
             </div>
           ))}

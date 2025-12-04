@@ -1,4 +1,8 @@
-function UploadIcon({ className }: { className?: string }) {
+interface IconProps {
+  className?: string
+}
+
+function UploadIcon({ className }: IconProps) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path
@@ -10,7 +14,7 @@ function UploadIcon({ className }: { className?: string }) {
   )
 }
 
-function SparklesIcon({ className }: { className?: string }) {
+function SparklesIcon({ className }: IconProps) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path
@@ -22,7 +26,7 @@ function SparklesIcon({ className }: { className?: string }) {
   )
 }
 
-function ShareIcon({ className }: { className?: string }) {
+function ShareIcon({ className }: IconProps) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path
@@ -34,7 +38,7 @@ function ShareIcon({ className }: { className?: string }) {
   )
 }
 
-function TrendingUpIcon({ className }: { className?: string }) {
+function TrendingUpIcon({ className }: IconProps) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -42,59 +46,73 @@ function TrendingUpIcon({ className }: { className?: string }) {
   )
 }
 
-const steps = [
+interface Step {
+  icon: React.ComponentType<IconProps>
+  step: string
+  title: string
+  description: string
+}
+
+const steps: Step[] = [
   {
     icon: UploadIcon,
     step: "1",
     title: "Cadastre Produtos",
-    description: "Adicione fotos e informações. A IA analisa e dá dicas.",
+    description: "Adicione fotos e informações. A IA analisa e dá dicas de melhoria.",
   },
   {
     icon: SparklesIcon,
     step: "2",
     title: "IA Organiza",
-    description: "Categorização automática e otimização do catálogo.",
+    description: "Categorização automática e otimização do seu catálogo.",
   },
   {
     icon: ShareIcon,
     step: "3",
     title: "Compartilhe",
-    description: "Envie o link para clientes via WhatsApp ou redes.",
+    description: "Envie o link do seu catálogo via WhatsApp ou redes sociais.",
   },
   {
     icon: TrendingUpIcon,
     step: "4",
-    title: "Venda",
-    description: "Receba pedidos pelo WhatsApp e acompanhe tudo.",
+    title: "Venda Mais",
+    description: "Receba pedidos pelo WhatsApp e acompanhe tudo no dashboard.",
   },
 ]
 
 export function HowItWorksSection() {
   return (
-    <section id="como-funciona" className="py-24 md:py-32 bg-muted/30">
+    <section id="como-funciona" className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">Como funciona</h2>
-          <p className="text-muted-foreground text-lg">Em 4 passos você estará vendendo com um catálogo profissional</p>
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
+            Como Funciona
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-4 text-balance">
+            Comece a vender em minutos
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Em 4 passos simples você terá um catálogo profissional funcionando
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {steps.map((step, index) => (
             <div key={index} className="relative">
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-[60%] w-full h-px bg-border" />
+                <div className="hidden lg:block absolute top-10 left-[60%] w-full h-0.5 bg-gradient-to-r from-primary/30 to-transparent" />
               )}
               <div className="flex flex-col items-center text-center">
-                <div className="relative mb-5">
-                  <div className="w-16 h-16 rounded-2xl bg-card border border-border flex items-center justify-center shadow-sm">
-                    <step.icon className="h-7 w-7 text-primary" />
+                <div className="relative mb-6">
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#2D68FF]/10 to-[#5A8BFF]/10 border border-primary/20 flex items-center justify-center shadow-lg shadow-primary/5">
+                    <step.icon className="h-8 w-8 text-primary" />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">
+                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-br from-[#2D68FF] to-[#5A8BFF] text-white text-sm font-bold flex items-center justify-center shadow-lg">
                     {step.step}
                   </div>
                 </div>
-                <h3 className="text-base font-semibold text-foreground mb-2">{step.title}</h3>
-                <p className="text-sm text-muted-foreground">{step.description}</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
               </div>
             </div>
           ))}
