@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   description:
     "Crie seu catálogo virtual inteligente. IA que organiza produtos, analisa qualidade de fotos e controla estoque. Vendas direto pelo WhatsApp. 100% White Label.",
   keywords: ["catálogo virtual", "IA", "WhatsApp", "vendas online", "e-commerce", "white label"],
+  icons: {
+    icon: { url: "/favicon.svg", type: "image/svg+xml" },
+  },
 }
 
 export default function RootLayout({
