@@ -22,6 +22,7 @@ import {
   CheckCircle2,
   AlertCircle,
   PartyPopper,
+  ExternalLink,
 } from "lucide-react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
@@ -226,12 +227,12 @@ export function RegisterForm() {
                 {mutation.isPending ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    Processando...
+                    Redirecionando...
                   </>
                 ) : (
                   <>
-                    Finalizar cadastro
-                    <CheckCircle2 className="w-4 h-4" />
+                    Ir para pagamento
+                    <ExternalLink className="w-4 h-4" />
                   </>
                 )}
               </Button>

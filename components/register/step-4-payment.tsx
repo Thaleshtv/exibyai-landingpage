@@ -129,16 +129,16 @@ export function Step4Payment() {
         </div>
       )}
 
-      {/* Info sobre o pagamento */}
-      <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
+      {/* Info sobre o redirecionamento */}
+      <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
         <div className="flex items-start gap-3">
-          <ShieldCheck className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+          <ShieldCheck className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
           <div>
-            <p className="text-sm font-medium text-blue-900">
-              Pagamento seguro via Asaas
+            <p className="text-sm font-medium text-amber-900">
+              Você será redirecionado para o pagamento
             </p>
-            <p className="text-sm text-blue-700 mt-1">
-              Ao finalizar, você será redirecionado para a página segura do Asaas para inserir os dados do seu cartão.
+            <p className="text-sm text-amber-700 mt-1">
+              Ao clicar em &quot;Ir para pagamento&quot;, você será direcionado para a página segura do <strong>Asaas</strong> para inserir os dados do seu cartão de crédito. Após o pagamento, você retornará automaticamente.
             </p>
           </div>
         </div>
