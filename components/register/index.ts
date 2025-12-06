@@ -1,0 +1,7 @@
+export { RegisterForm } from "./register-form"
+export { StepProgress } from "./step-progress"
+export { FormField } from "./form-field"
+export { Step1Personal } from "./step-1-personal"
+export { Step2Business } from "./step-2-business"
+export { Step3Address } from "./step-3-address"
+export { Step4Payment } from "./step-4-payment"

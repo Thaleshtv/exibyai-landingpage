@@ -76,7 +76,7 @@ const steps: Step[] = [
     icon: TrendingUpIcon,
     step: "4",
     title: "Venda Mais",
-    description: "Receba pedidos pelo WhatsApp e acompanhe tudo no dashboard.",
+    description: "Clientes interessados são direcionados para o seu WhatsApp para finalizar a compra.",
   },
 ]
 
