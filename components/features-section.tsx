@@ -104,7 +104,7 @@ const features: Feature[] = [
   {
     icon: MessageCircleIcon,
     title: "Vendas pelo WhatsApp",
-    description: "Integração direta com WhatsApp. Seus clientes compram sem sair do app favorito deles.",
+    description: "Direcione seus clientes para o WhatsApp com um clique. Finalize vendas de forma prática.",
     color: "from-[#2D68FF] to-[#4A7FFF]",
   },
   {
@@ -116,7 +116,7 @@ const features: Feature[] = [
   {
     icon: ChartIcon,
     title: "Insights e Métricas",
-    description: "Dashboard completo com vendas, produtos populares e comportamento dos seus clientes.",
+    description: "Acompanhe cliques, visualizações e interesse dos clientes em cada produto do seu catálogo.",
     color: "from-[#2D68FF] to-[#5A8BFF]",
   },
 ]
