@@ -72,7 +72,8 @@ export function RegisterForm() {
       if (data.checkoutUrl) {
         setCheckoutUrl(data.checkoutUrl)
       } else {
-        setIsSuccess(true)
+        // Se não retornou checkoutUrl, é um erro
+        throw new Error("Não foi possível gerar o link de pagamento. Tente novamente.")
       }
     },
   })
