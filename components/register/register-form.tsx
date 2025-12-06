@@ -22,8 +22,6 @@ import {
   CheckCircle2,
   AlertCircle,
   PartyPopper,
-  X,
-  CreditCard,
 } from "lucide-react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
@@ -55,7 +53,6 @@ export function RegisterForm() {
   const [currentStep, setCurrentStep] = useState(1)
   const [isSuccess, setIsSuccess] = useState(false)
   const [direction, setDirection] = useState<"forward" | "backward">("forward")
-  const [checkoutUrl, setCheckoutUrl] = useState<string | null>(null)
 
   const methods = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema),
@@ -68,19 +65,14 @@ export function RegisterForm() {
   const mutation = useMutation({
     mutationFn: registerUser,
     onSuccess: (data) => {
-      // Abre o iframe do checkout Asaas
+      // Redireciona para o checkout do Asaas
       if (data.checkoutUrl) {
-        setCheckoutUrl(data.checkoutUrl)
+        window.location.href = data.checkoutUrl
       } else {
-        // Se não retornou checkoutUrl, é um erro
         throw new Error("Não foi possível gerar o link de pagamento. Tente novamente.")
       }
     },
   })
-
-  const handleCloseCheckout = () => {
-    setCheckoutUrl(null)
-  }
 
   const validateCurrentStep = async () => {
     const fields = stepFields[currentStep - 1]
@@ -139,77 +131,6 @@ export function RegisterForm() {
             </Link>
           </div>
         </div>
-      </div>
-    )
-  }
-
-  // Modal com iframe do checkout Asaas
-  if (checkoutUrl) {
-    return (
-      <div className="max-w-2xl mx-auto">
-        <div className="bg-white rounded-3xl shadow-2xl shadow-primary/10 border border-gray-100 overflow-hidden">
-          {/* Header do Checkout */}
-          <div className="bg-gradient-to-r from-primary to-primary/80 px-6 py-4 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                <CreditCard className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <h2 className="text-lg font-semibold text-white">
-                  Pagamento Seguro
-                </h2>
-                <p className="text-sm text-white/80">
-                  Powered by Asaas
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              onClick={handleCloseCheckout}
-              className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
-            >
-              <X className="w-4 h-4 text-white" />
-            </button>
-          </div>
-
-          {/* Iframe do Checkout */}
-          <div className="relative">
-            <iframe
-              src={checkoutUrl}
-              className="w-full h-[600px] border-0"
-              title="Checkout Asaas"
-              allow="payment"
-            />
-          </div>
-
-          {/* Footer */}
-          <div className="px-6 py-4 bg-gray-50 border-t flex items-center justify-center gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-600" />
-              <span>Ambiente seguro</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg
-                className="w-4 h-4 text-green-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                />
-              </svg>
-              <span>Criptografia SSL</span>
-            </div>
-          </div>
-        </div>
-
-        <p className="text-center text-sm text-muted-foreground mt-4">
-          Após o pagamento, você receberá um email com as instruções de acesso.
-        </p>
       </div>
     )
   }

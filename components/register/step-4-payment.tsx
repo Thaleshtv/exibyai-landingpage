@@ -138,7 +138,7 @@ export function Step4Payment() {
               Pagamento seguro via Asaas
             </p>
             <p className="text-sm text-blue-700 mt-1">
-              Ao finalizar, você poderá inserir os dados do seu cartão de forma segura, sem sair desta página.
+              Ao finalizar, você será redirecionado para a página segura do Asaas para inserir os dados do seu cartão.
             </p>
           </div>
         </div>
