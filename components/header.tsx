@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 interface IconProps {
   className?: string
@@ -24,11 +25,24 @@ function XIcon({ className }: IconProps) {
   )
 }
 
-export function Header() {
+interface HeaderProps {
+  variant?: "default" | "dark"
+}
+
+export function Header({ variant = "default" }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  const isDark = variant === "dark"
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-gradient-to-r from-[#2D68FF] via-[#4A7FFF] to-[#5A8BFF] backdrop-blur-md">
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full border-b backdrop-blur-md",
+        isDark
+          ? "border-gray-700/50 bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800"
+          : "border-white/10 bg-gradient-to-r from-[#2D68FF] via-[#4A7FFF] to-[#5A8BFF]"
+      )}
+    >
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent" />
       <div className="container mx-auto flex h-20 items-center justify-between px-4 relative">
@@ -42,19 +56,19 @@ export function Header() {
 
         <nav className="hidden md:flex items-center gap-8">
           <Link
-            href="#recursos"
+            href="/#recursos"
             className="text-sm font-bold text-white/90 hover:text-white transition-colors"
           >
             Recursos
           </Link>
           <Link
-            href="#como-funciona"
+            href="/#como-funciona"
             className="text-sm font-bold text-white/90 hover:text-white transition-colors"
           >
             Como Funciona
           </Link>
           <Link
-            href="#precos"
+            href="/#precos"
             className="text-sm font-bold text-white/90 hover:text-white transition-colors"
           >
             Preços
@@ -65,7 +79,16 @@ export function Header() {
           <Button variant="ghost" size="sm" asChild className="font-bold text-white/90 hover:text-white hover:bg-white/10">
             <Link href="/login">Entrar</Link>
           </Button>
-          <Button size="sm" asChild className="font-semibold bg-white text-[#2D68FF] hover:bg-white/90 shadow-lg border-0">
+          <Button
+            size="sm"
+            asChild
+            className={cn(
+              "font-semibold shadow-lg border-0",
+              isDark
+                ? "bg-primary text-white hover:bg-primary/90"
+                : "bg-white text-[#2D68FF] hover:bg-white/90"
+            )}
+          >
             <Link href="/cadastro">Assinar</Link>
           </Button>
         </div>
@@ -80,24 +103,31 @@ export function Header() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-white/10 bg-[#4A7FFF]/95 backdrop-blur-md">
+        <div
+          className={cn(
+            "md:hidden border-t backdrop-blur-md",
+            isDark
+              ? "border-gray-700/50 bg-gray-800/95"
+              : "border-white/10 bg-[#4A7FFF]/95"
+          )}
+        >
           <nav className="flex flex-col p-4 gap-1">
             <Link
-              href="#recursos"
+              href="/#recursos"
               className="text-sm font-bold text-white/90 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Recursos
             </Link>
             <Link
-              href="#como-funciona"
+              href="/#como-funciona"
               className="text-sm font-bold text-white/90 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Como Funciona
             </Link>
             <Link
-              href="#precos"
+              href="/#precos"
               className="text-sm font-bold text-white/90 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -107,7 +137,15 @@ export function Header() {
               <Button variant="ghost" asChild className="justify-start font-bold text-white/90 hover:text-white hover:bg-white/10">
                 <Link href="/login">Entrar</Link>
               </Button>
-              <Button asChild className="font-semibold bg-white text-[#2D68FF] hover:bg-white/90">
+              <Button
+                asChild
+                className={cn(
+                  "font-semibold",
+                  isDark
+                    ? "bg-primary text-white hover:bg-primary/90"
+                    : "bg-white text-[#2D68FF] hover:bg-white/90"
+                )}
+              >
                 <Link href="/cadastro">Assinar</Link>
               </Button>
             </div>

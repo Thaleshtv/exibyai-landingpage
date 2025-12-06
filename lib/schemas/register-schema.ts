@@ -140,30 +140,10 @@ export const step3Schema = z.object({
     .regex(/^\(?[1-9]{2}\)?\s?9?\d{4}-?\d{4}$/, "Telefone inválido"),
 })
 
-// Step 4: Pagamento
+// Step 4: Seleção de Plano
 export const step4Schema = z.object({
-  cardHolderName: z
-    .string()
-    .min(3, "Nome do titular é obrigatório")
-    .regex(/^[a-zA-ZÀ-ÿ\s]+$/, "Nome deve conter apenas letras"),
-  cardNumber: z.string().min(13, "Número do cartão inválido"),
-  cardExpiry: z
-    .string()
-    .regex(/^(0[1-9]|1[0-2])\/\d{2}$/, "Validade inválida (MM/AA)"),
-  cardCvv: z
-    .string()
-    .min(3, "CVV inválido")
-    .max(4, "CVV inválido")
-    .regex(/^\d+$/, "CVV deve conter apenas números"),
+  planId: z.string().min(1, "Selecione um plano"),
 })
-
-export const step4SchemaRefined = step4Schema.refine(
-  (data) => isValidCardNumber(data.cardNumber),
-  {
-    message: "Número do cartão inválido",
-    path: ["cardNumber"],
-  }
-)
 
 // Schema completo
 export const registerSchema = z
@@ -186,10 +166,6 @@ export const registerSchema = z
       path: ["document"],
     }
   )
-  .refine((data) => isValidCardNumber(data.cardNumber), {
-    message: "Número do cartão inválido",
-    path: ["cardNumber"],
-  })
 
 export type RegisterFormData = z.infer<typeof registerSchema>
 export type Step1Data = z.infer<typeof step1Schema>
