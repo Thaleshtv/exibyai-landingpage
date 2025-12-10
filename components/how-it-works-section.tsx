@@ -82,37 +82,37 @@ const steps: Step[] = [
 
 export function HowItWorksSection() {
   return (
-    <section id="como-funciona" className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background overflow-hidden">
+    <section id="como-funciona" className="py-12 md:py-28 bg-gradient-to-b from-muted/50 to-background overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16 px-2">
+          <span className="text-primary font-semibold text-xs md:text-sm uppercase tracking-wider mb-3 md:mb-4 block">
             Como Funciona
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-4 text-balance">
+          <h2 className="text-2xl md:text-4xl font-extrabold text-foreground mb-3 md:mb-4 text-balance">
             Comece a vender em minutos
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-sm md:text-lg">
             Em 4 passos simples você terá um catálogo profissional funcionando
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
           {steps.map((step, index) => (
             <div key={index} className="relative">
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-10 left-[60%] w-full h-0.5 bg-gradient-to-r from-primary/30 to-transparent" />
               )}
               <div className="flex flex-col items-center text-center">
-                <div className="relative mb-6">
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#2D68FF]/10 to-[#5A8BFF]/10 border border-primary/20 flex items-center justify-center shadow-lg shadow-primary/5">
-                    <step.icon className="h-8 w-8 text-primary" />
+                <div className="relative mb-4 md:mb-6">
+                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-xl md:rounded-2xl bg-gradient-to-br from-[#2D68FF]/10 to-[#5A8BFF]/10 border border-primary/20 flex items-center justify-center shadow-lg shadow-primary/5">
+                    <step.icon className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-br from-[#2D68FF] to-[#5A8BFF] text-white text-sm font-bold flex items-center justify-center shadow-lg">
+                  <div className="absolute -top-1.5 -right-1.5 md:-top-2 md:-right-2 w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-[#2D68FF] to-[#5A8BFF] text-white text-xs md:text-sm font-bold flex items-center justify-center shadow-lg">
                     {step.step}
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                <h3 className="text-sm md:text-lg font-bold text-foreground mb-1 md:mb-2">{step.title}</h3>
+                <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{step.description}</p>
               </div>
             </div>
           ))}

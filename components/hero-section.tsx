@@ -23,7 +23,7 @@ function SparklesIcon({ className }: { className?: string }) {
 
 export function HeroSection() {
   return (
-    <section className="relative py-20 md:py-28 lg:py-36 overflow-hidden">
+    <section className="relative py-12 md:py-28 lg:py-36 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#2D68FF]/5 via-[#4A7FFF]/5 to-[#5A8BFF]/5" />
 
@@ -38,38 +38,38 @@ export function HeroSection() {
       <div className="container mx-auto px-4 relative">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-8 text-sm text-primary font-medium">
-            <SparklesIcon className="h-4 w-4" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full mb-6 md:mb-8 text-xs md:text-sm text-primary font-medium">
+            <SparklesIcon className="h-3.5 w-3.5 md:h-4 md:w-4" />
             100% White Label para sua marca
           </div>
 
           {/* Main heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mb-6 text-balance leading-[1.1]">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mb-4 md:mb-6 text-balance leading-[1.15]">
             O catálogo inteligente que{" "}
             <span className="gradient-text">vende por você</span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-4 text-pretty leading-relaxed">
+          <p className="text-sm sm:text-base md:text-xl text-muted-foreground max-w-2xl mb-3 md:mb-4 text-pretty leading-relaxed px-2 md:px-0">
             IA que organiza produtos, analisa qualidade de fotos e sugere promoções.
             Vendas direto pelo WhatsApp.
           </p>
 
           {/* Price highlight */}
-          <div className="flex items-center gap-2 mb-10">
-            <span className="text-2xl md:text-3xl font-bold text-foreground">R$ 119,90</span>
-            <span className="text-muted-foreground">/mês</span>
+          <div className="flex items-center gap-2 mb-6 md:mb-10">
+            <span className="text-xl md:text-3xl font-bold text-foreground">R$ 119,90</span>
+            <span className="text-sm md:text-base text-muted-foreground">/mês</span>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <Button size="lg" asChild className="text-base px-8 h-12 shadow-lg shadow-primary/25 bg-gradient-to-r from-[#2D68FF] to-[#5A8BFF] hover:opacity-90 border-0">
+          <div className="flex flex-col sm:flex-row gap-3 mb-10 md:mb-16 w-full sm:w-auto px-4 sm:px-0">
+            <Button size="lg" asChild className="text-sm md:text-base px-6 md:px-8 h-11 md:h-12 shadow-lg shadow-primary/25 bg-gradient-to-r from-[#2D68FF] to-[#5A8BFF] hover:opacity-90 border-0">
               <Link href="/cadastro">
                 Assinar Agora
                 <ArrowRightIcon className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="text-base px-8 h-12">
+            <Button size="lg" variant="outline" asChild className="text-sm md:text-base px-6 md:px-8 h-11 md:h-12">
               <Link href="#como-funciona">
                 Como Funciona
               </Link>
@@ -87,12 +87,12 @@ export function HeroSection() {
                 </div>
                 <span className="text-xs text-muted-foreground ml-2">seudominio.com.br</span>
               </div>
-              <div className="p-6 md:p-8">
-                <div className="grid md:grid-cols-3 gap-6">
+              <div className="p-4 md:p-8">
+                <div className="grid md:grid-cols-3 gap-4 md:gap-6">
                   {/* Photo Analysis Card */}
-                  <div className="bg-muted/30 rounded-xl p-5 border border-border hover:border-primary/30 transition-colors">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-sm font-semibold text-foreground">Análise de Foto</span>
+                  <div className="bg-muted/30 rounded-xl p-4 md:p-5 border border-border hover:border-primary/30 transition-colors">
+                    <div className="flex items-center justify-between mb-3 md:mb-4">
+                      <span className="text-xs md:text-sm font-semibold text-foreground">Análise de Foto</span>
                       <span className="text-xs bg-green-500/10 text-green-600 px-2.5 py-1 rounded-full font-semibold">
                         9.2/10
                       </span>
@@ -104,8 +104,8 @@ export function HeroSection() {
                   </div>
 
                   {/* Stock Card */}
-                  <div className="bg-muted/30 rounded-xl p-5 border border-border hover:border-primary/30 transition-colors">
-                    <span className="text-sm font-semibold text-foreground block mb-4">Estoque Inteligente</span>
+                  <div className="bg-muted/30 rounded-xl p-4 md:p-5 border border-border hover:border-primary/30 transition-colors">
+                    <span className="text-xs md:text-sm font-semibold text-foreground block mb-3 md:mb-4">Estoque Inteligente</span>
                     <div className="space-y-3">
                       <div className="flex items-center justify-between text-sm">
                         <span className="text-muted-foreground">Camiseta Azul</span>
@@ -123,17 +123,17 @@ export function HeroSection() {
                   </div>
 
                   {/* WhatsApp Card */}
-                  <div className="bg-muted/30 rounded-xl p-5 border border-border hover:border-primary/30 transition-colors">
-                    <div className="flex items-center gap-2 mb-4">
+                  <div className="bg-muted/30 rounded-xl p-4 md:p-5 border border-border hover:border-primary/30 transition-colors">
+                    <div className="flex items-center gap-2 mb-3 md:mb-4">
                       <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-                      <span className="text-sm font-semibold text-foreground">WhatsApp</span>
+                      <span className="text-xs md:text-sm font-semibold text-foreground">WhatsApp</span>
                     </div>
                     <div className="bg-green-500/10 rounded-lg px-3 py-2 text-xs text-green-700 font-medium mb-3">
                       Novo pedido recebido!
                     </div>
                     <div className="flex items-baseline justify-between">
                       <span className="text-xs text-muted-foreground">12 vendas hoje</span>
-                      <span className="text-xl font-bold text-foreground">R$ 2.450</span>
+                      <span className="text-lg md:text-xl font-bold text-foreground">R$ 2.450</span>
                     </div>
                   </div>
                 </div>

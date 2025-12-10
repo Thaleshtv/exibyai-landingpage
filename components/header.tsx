@@ -45,12 +45,12 @@ export function Header({ variant = "default" }: HeaderProps) {
     >
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent" />
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 relative">
+      <div className="container mx-auto flex h-16 md:h-20 items-center justify-between px-4 relative">
         <Link href="/" className="flex items-center gap-2">
           <img
             src="/logo-branca.png"
             alt="Exiby"
-            className="h-8 w-auto"
+            className="h-6 md:h-8 w-auto"
           />
         </Link>
 

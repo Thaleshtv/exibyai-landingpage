@@ -123,31 +123,31 @@ const features: Feature[] = [
 
 export function FeaturesSection() {
   return (
-    <section id="recursos" className="py-20 md:py-28 overflow-hidden">
+    <section id="recursos" className="py-12 md:py-28 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16 px-2">
+          <span className="text-primary font-semibold text-xs md:text-sm uppercase tracking-wider mb-3 md:mb-4 block">
             Recursos
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-4 text-balance">
+          <h2 className="text-2xl md:text-4xl font-extrabold text-foreground mb-3 md:mb-4 text-balance">
             Tudo para vender mais
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-sm md:text-lg">
             Ferramentas inteligentes que transformam seu catálogo em máquina de vendas
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group p-6 rounded-2xl border border-border bg-card hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+              className="group p-4 md:p-6 rounded-xl md:rounded-2xl border border-border bg-card hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
             >
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
-                <feature.icon className="h-6 w-6 text-white" />
+              <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-3 md:mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                <feature.icon className="h-5 w-5 md:h-6 md:w-6 text-white" />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
+              <h3 className="text-base md:text-lg font-bold text-foreground mb-1.5 md:mb-2">{feature.title}</h3>
+              <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>
