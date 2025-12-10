@@ -77,7 +77,7 @@ export function Header({ variant = "default" }: HeaderProps) {
 
         <div className="hidden md:flex items-center gap-3">
           <Button variant="ghost" size="sm" asChild className="font-bold text-white/90 hover:text-white hover:bg-white/10">
-            <Link href="/login">Entrar</Link>
+            <Link href="https://admin.exibyai.com">Entrar</Link>
           </Button>
           <Button
             size="sm"
@@ -135,7 +135,7 @@ export function Header({ variant = "default" }: HeaderProps) {
             </Link>
             <div className="flex flex-col gap-2 pt-4 mt-2 border-t border-white/10">
               <Button variant="ghost" asChild className="justify-start font-bold text-white/90 hover:text-white hover:bg-white/10">
-                <Link href="/login">Entrar</Link>
+                <Link href="https://admin.exibyai.com">Entrar</Link>
               </Button>
               <Button
                 asChild
