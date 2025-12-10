@@ -27,7 +27,7 @@ function SparklesIcon({ className }: IconProps) {
 
 export function CtaSection() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-20 md:py-28 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="relative max-w-4xl mx-auto text-center rounded-3xl overflow-hidden">
           {/* Gradient background */}

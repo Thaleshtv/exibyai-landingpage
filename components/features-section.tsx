@@ -123,7 +123,7 @@ const features: Feature[] = [
 
 export function FeaturesSection() {
   return (
-    <section id="recursos" className="py-20 md:py-28">
+    <section id="recursos" className="py-20 md:py-28 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">

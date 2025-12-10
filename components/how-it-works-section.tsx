@@ -82,7 +82,7 @@ const steps: Step[] = [
 
 export function HowItWorksSection() {
   return (
-    <section id="como-funciona" className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background">
+    <section id="como-funciona" className="py-20 md:py-28 bg-gradient-to-b from-muted/50 to-background overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
